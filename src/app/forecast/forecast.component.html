@@ -1,0 +1,28 @@
+<div class="input-group input-group-lg">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Lugar</span>
+    </div>
+    <input type="text" placeholder="Digite o lugar da sua busca" [(ngModel)]="place" (keyup)="search()" class="form-control" aria-label="Large"
+        aria-describedby="inputGroup-sizing-sm">
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Ação</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of results | async">
+            <td>{{ city.name }}</td>
+            <td>{{ city.lat }}</td>
+            <td>{{ city.lng }}</td>
+            <td><button class="btn btn-primary" (click)="lookup(city)">Ver clima</button></td>
+        </tr>
+    </tbody>
+</table>
